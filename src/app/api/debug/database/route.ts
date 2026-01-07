@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       organizations: {
         data: orgs,
-        error: orgError?.message || orgError
+        error: typeof orgError === 'string' ? orgError : orgError?.message
       },
       admins: {
         data: admins,
